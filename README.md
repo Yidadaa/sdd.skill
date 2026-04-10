@@ -1,6 +1,8 @@
 # sdd.skill
 Story-Driven Development: split PRDs into stories, implement them end-to-end, and review code quality.
 
+AI 没有读心术，精准描述你的需求，AI 会帮你完成剩下的。
+
 [中文文档](README.zh-CN.md)
 
 ## What It Does
