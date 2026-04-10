@@ -11,8 +11,8 @@ This skill adds four commands to your AI coding agent:
 
 | Command  | Purpose                                                            |
 | -------- | ------------------------------------------------------------------ |
-| `update` | Revise existing PRDs or stories based on new requirements          |
 | `create` | Split a PRD into independently implementable stories               |
+| `update` | Revise existing PRDs or stories based on new requirements          |
 | `start`  | Implement a story end-to-end (code, tests, docs)                   |
 | `review` | Review staged git changes for type safety, style, and code quality |
 
@@ -54,6 +54,8 @@ The skill is automatically picked up by AI coding agents that support custom ski
 In your AI coding agent, reference the skill naturally:
 
 ```
+# Manually create docs/prd/my-feature.md first — write this file yourself to fully describe your requirements
+
 # Create stories from a PRD
 /story create stories from docs/prd/my-feature.md
 

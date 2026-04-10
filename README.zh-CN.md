@@ -7,8 +7,8 @@
 
 | 命令     | 用途                                          |
 | -------- | --------------------------------------------- |
-| `update` | 根据新需求修订现有 PRD 或故事                 |
 | `create` | 将 PRD 拆分为可独立实现的故事                 |
+| `update` | 根据新需求修订现有 PRD 或故事                 |
 | `start`  | 端到端实现一个故事（代码、测试、文档）        |
 | `review` | 审查暂存的 git 变更的类型安全、风格和代码质量 |
 
@@ -50,6 +50,8 @@ New-Item -ItemType Directory -Force -Path .agents\skills\story | Out-Null; Invok
 在你的 AI 编程助手中自然地引用该技能：
 
 ```
+# 先手动创建 docs/prd/my-feature.md — 请务必手写此文件，用来完整描述你的需求
+
 # 从 PRD 创建故事
 /story create stories from docs/prd/my-feature.md
 

@@ -1,7 +1,7 @@
 ---
 name: story
-description: "Story-driven development workflow for docs/prd and docs/story. Use for story update/create/start/review with a short /story command."
-argument-hint: "<update|create|start|review> request=<what to change/build> [prd=<path>] [story=<id>]"
+description: "Story-driven development workflow for docs/prd and docs/story. Use for story create/update/start/review with a short /story command."
+argument-hint: "<create|update|start|review> request=<what to change/build> [prd=<path>] [story=<id>]"
 ---
 
 # Story Development Skill
@@ -10,8 +10,8 @@ argument-hint: "<update|create|start|review> request=<what to change/build> [prd
 
 Run a reusable story-driven workflow with four commands:
 
-- `update`: analyze request, then update `docs/story` and/or versioned `docs/prd`
 - `create`: generate story planning and story files from request or PRD
+- `update`: analyze request, then update `docs/story` and/or versioned `docs/prd`
 - `start`: execute development for a target story until that story is complete
 - `review`: review staged git changes for code quality, type safety, and style issues
 
@@ -30,37 +30,6 @@ Run a reusable story-driven workflow with four commands:
 4. Keep each generated story file under 500 lines.
 5. Prefer ASCII text unless existing file clearly uses non-ASCII.
 6. Follow existing story naming convention in this repo: `m.n-plan.md`, `m.n-wip.md`, `m.n-done.md`.
-
-## Command: `update`
-
-Use this when the user requests requirement/story changes.
-
-### Steps
-
-1. Parse request into one of: PRD update, story update, or both.
-2. Read relevant `docs/story/*.md` and `docs/prd/*.md` files to understand current state.
-3. If any scope, priority, acceptance criteria, or dependency is unclear, ask clarifying questions.
-4. Apply updates:
-
-- Story updates: edit target story files directly.
-- PRD updates: do not overwrite old PRD; create a new version file using topic-based increment.
-
-5. When creating PRD version:
-
-- Detect the target PRD topic from user input or selected source file.
-- Find highest existing version for that topic in `docs/prd/`.
-- Create next version file as `<topic>-v[x+1].md` from the latest effective baseline of that topic.
-- Include a detailed "Version Notes" section with what changed and why.
-- Remove old prd version from any references in story files if the new version supersedes it.
-
-6. Validate consistency between updated PRD and story files.
-7. Report exactly which files changed and what decisions were made.
-
-### Completion Checks
-
-- PRD changes are in a new versioned file, never destructive overwrite.
-- Story changes reflect clarified user intent.
-- Any unresolved ambiguity is explicitly listed.
 
 ## Command: `create`
 
@@ -98,6 +67,37 @@ Use this when user asks to generate stories from a request or a PRD.
 - Planning file exists for the new story group.
 - Stories are independently implementable.
 - All stories are <= 500 lines.
+
+## Command: `update`
+
+Use this when the user requests requirement/story changes.
+
+### Steps
+
+1. Parse request into one of: PRD update, story update, or both.
+2. Read relevant `docs/story/*.md` and `docs/prd/*.md` files to understand current state.
+3. If any scope, priority, acceptance criteria, or dependency is unclear, ask clarifying questions.
+4. Apply updates:
+
+- Story updates: edit target story files directly.
+- PRD updates: do not overwrite old PRD; create a new version file using topic-based increment.
+
+5. When creating PRD version:
+
+- Detect the target PRD topic from user input or selected source file.
+- Find highest existing version for that topic in `docs/prd/`.
+- Create next version file as `<topic>-v[x+1].md` from the latest effective baseline of that topic.
+- Include a detailed "Version Notes" section with what changed and why.
+- Remove old prd version from any references in story files if the new version supersedes it.
+
+6. Validate consistency between updated PRD and story files.
+7. Report exactly which files changed and what decisions were made.
+
+### Completion Checks
+
+- PRD changes are in a new versioned file, never destructive overwrite.
+- Story changes reflect clarified user intent.
+- Any unresolved ambiguity is explicitly listed.
 
 ## Command: `start`
 
