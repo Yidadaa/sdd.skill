@@ -119,10 +119,10 @@ End-to-end test scenarios described in natural language.
 
 The `review` command analyzes staged diffs for:
 
-- **Type safety** — no `as any`, no broad `Record<string, any>`, prefer type inference over redefinition
+- **Type safety** — avoid overly broad types, prefer type inference and derivation, fix type warnings properly
 - **Redundant logic** — extract repeated code, consolidate copy-pasted branches
-- **Magic values** — no hard-coded numbers, route strings, or identifiers
-- **Code style** — no inline styles, no empty catch blocks, no console.log in production
+- **Magic values** — no hard-coded numbers or string identifiers
+- **Code style** — no empty catch blocks, no debug logging in production, follow existing project conventions
 
 ## Customization
 
